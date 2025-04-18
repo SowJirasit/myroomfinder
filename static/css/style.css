@@ -1,0 +1,126 @@
+/* ฟอนต์ & พื้นหลัง */
+
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background-color: #1a1a1a;  /* 👈 เปลี่ยนตรงนี้ */
+  color: #ececf1;
+}
+
+
+/* Header Navigation */
+nav {
+  background-color: #444654;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #565869;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+nav .menu a {
+  color: #ececf1;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 300;
+}
+
+nav .menu a:hover {
+  color: #7c3aed;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-weight: 300;
+  color: #acacbe;
+}
+
+/* Search Filter */
+.search-filter {
+  margin: 2rem auto;
+  max-width: 600px;
+  background-color: #444654;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #565869;
+}
+
+.search-filter input {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #343541;
+  color: #ececf1;
+}
+
+/* Room Grid Layout */
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.room-card {
+  background-color: #444654;
+  border: 1px solid #565869;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.room-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.room-card .info {
+  padding: 1rem;
+}
+
+.room-card .info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.room-card .info p {
+  margin: 0.25rem 0;
+  color: #acacbe;
+  font-size: 0.9rem;
+}
+
+.room-card .info a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #7c3aed;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.room-card .info a:hover {
+  color: #6d28d9;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #acacbe;
+  font-size: 0.85rem;
+}

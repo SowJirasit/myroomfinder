@@ -1,65 +1,124 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <title>Sonic Residence | ค้นหาห้องพัก</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #1a1a1a;
+            color: #ececf1;
+            font-family: 'Prompt', sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #2c2c2e;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 8px;
+            border: none;
+            background-color: #3a3a3c;
+            color: #fff;
+        }
+        button {
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            background-color: #7c3aed;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6d28d9;
+        }
+        a {
+            color: #7c3aed;
+        }
+        p {
+            margin-top: 0.5rem;
+        }
+    </style>
 </head>
 <body>
-    <!-- ชื่อเว็บไซต์ -->
-    <h1>Sonic Residence</h1>
+    <div class="container">
+        <!-- ชื่อเว็บไซต์ -->
+        <h1>🏙️ Sonic Residence</h1>
 
-    <!-- ข้อความต้อนรับ -->
-    <p>🎉🎉🎉 ยินดีต้อนรับเข้าสู่เว็บไซต์ค้นหาห้องพักของ Sonic Residence! 🎉🎉🎉</p>
+        <!-- ข้อความต้อนรับ -->
+        <p>🎉 ยินดีต้อนรับเข้าสู่เว็บไซต์ค้นหาห้องพักของ Sonic Residence!</p>
 
-    <p><a href="/all">🔍 ดูรายการห้องทั้งหมด</a></p>
+        <p><a href="/all">📋 ดูรายการห้องทั้งหมด</a></p>
 
-    <!-- ฟอร์มค้นหา -->
-    <form method="GET" action="/search">
+        <!-- ฟอร์มค้นหา -->
+        <form method="GET" action="/search">
 
-        <!-- 1. ชนิด -->
-        <label>ชนิด:
+            <!-- 1. ชนิด -->
+            <label>🏠 ชนิด:</label>
             <select name="type">
                 <option value="">--ทั้งหมด--</option>
                 <option value="บ้าน">บ้าน</option>
                 <option value="คอนโด">คอนโด</option>
             </select>
-        </label><br><br>
 
-        <!-- 2. โลเคชั่น -->
-        <label>โลเคชั่น:
+            <!-- 2. โลเคชั่น -->
+            <label>📍 โลเคชั่น:</label>
             <input type="text" name="location" placeholder="เช่น บางนา, ลาดพร้าว, เชียงใหม่">
-        </label><br><br>
 
-        <!-- 3. ราคา -->
-        <label>ราคา (บาท/เดือน):</label>
-        <input type="number" name="price_min" placeholder="ตั้งแต่"> -
-        <input type="number" name="price_max" placeholder="ถึง"><br><br>
+            <!-- 3. ราคา -->
+            <label>💰 ราคา (บาท/เดือน):</label>
+            <input type="number" name="price_min" placeholder="ตั้งแต่">
+            <input type="number" name="price_max" placeholder="ถึง">
 
-        <!-- 4. ขนาดห้อง -->
-        <label>ขนาดห้อง (ตรม.):</label>
-        <input type="number" name="size_min" placeholder="ตั้งแต่"><br><br>
+            <!-- 4. ขนาดห้อง -->
+            <label>📏 ขนาดห้อง (ตรม.):</label>
+            <input type="number" name="size_min" placeholder="ตั้งแต่">
 
-        <!-- 5. จำนวนห้องนอน -->
-        <label>จำนวนห้องนอน:</label>
-        <select name="bedrooms_min">
-            <option value="Studio" selected>Studio</option>
-            <option value="1">1 ห้องนอน</option>
-            <option value="2">2 ห้องนอน</option>
-            <option value="3">3 ห้องนอน</option>
-            <option value="4">4 ห้องนอนขึ้นไป</option>
-        </select><br><br>
+            <!-- 5. จำนวนห้องนอน -->
+            <label>🛏️ จำนวนห้องนอน:</label>
+            <select name="bedrooms_min">
+                <option value="Studio" selected>Studio</option>
+                <option value="1">1 ห้องนอน</option>
+                <option value="2">2 ห้องนอน</option>
+                <option value="3">3 ห้องนอน</option>
+                <option value="4">4 ห้องนอนขึ้นไป</option>
+            </select>
 
-        <!-- 6. เลี้ยงสัตว์ได้ -->
-        <label>เลี้ยงสัตว์ได้:
+            <!-- 6. เลี้ยงสัตว์ได้ -->
+            <label>🐾 เลี้ยงสัตว์ได้:</label>
             <select name="pet_friendly">
                 <option value="">--ไม่ระบุ--</option>
                 <option value="yes">ได้</option>
                 <option value="no">ไม่ได้</option>
             </select>
-        </label><br><br>
 
-        <button type="submit">ค้นหา</button>
-    </form>
+            <button type="submit">🔍 ค้นหา</button>
+        </form>
+    </div>
 </body>
 </html>
