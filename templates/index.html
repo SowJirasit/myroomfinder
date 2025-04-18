@@ -1,0 +1,65 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Sonic Residence | ค้นหาห้องพัก</title>
+</head>
+<body>
+    <!-- ชื่อเว็บไซต์ -->
+    <h1>Sonic Residence</h1>
+
+    <!-- ข้อความต้อนรับ -->
+    <p>🎉🎉🎉 ยินดีต้อนรับเข้าสู่เว็บไซต์ค้นหาห้องพักของ Sonic Residence! 🎉🎉🎉</p>
+
+    <p><a href="/all">🔍 ดูรายการห้องทั้งหมด</a></p>
+
+    <!-- ฟอร์มค้นหา -->
+    <form method="GET" action="/search">
+
+        <!-- 1. ชนิด -->
+        <label>ชนิด:
+            <select name="type">
+                <option value="">--ทั้งหมด--</option>
+                <option value="บ้าน">บ้าน</option>
+                <option value="คอนโด">คอนโด</option>
+            </select>
+        </label><br><br>
+
+        <!-- 2. โลเคชั่น -->
+        <label>โลเคชั่น:
+            <input type="text" name="location" placeholder="เช่น บางนา, ลาดพร้าว, เชียงใหม่">
+        </label><br><br>
+
+        <!-- 3. ราคา -->
+        <label>ราคา (บาท/เดือน):</label>
+        <input type="number" name="price_min" placeholder="ตั้งแต่"> -
+        <input type="number" name="price_max" placeholder="ถึง"><br><br>
+
+        <!-- 4. ขนาดห้อง -->
+        <label>ขนาดห้อง (ตรม.):</label>
+        <input type="number" name="size_min" placeholder="ตั้งแต่"><br><br>
+
+        <!-- 5. จำนวนห้องนอน -->
+        <label>จำนวนห้องนอน:</label>
+        <select name="bedrooms_min">
+            <option value="Studio" selected>Studio</option>
+            <option value="1">1 ห้องนอน</option>
+            <option value="2">2 ห้องนอน</option>
+            <option value="3">3 ห้องนอน</option>
+            <option value="4">4 ห้องนอนขึ้นไป</option>
+        </select><br><br>
+
+        <!-- 6. เลี้ยงสัตว์ได้ -->
+        <label>เลี้ยงสัตว์ได้:
+            <select name="pet_friendly">
+                <option value="">--ไม่ระบุ--</option>
+                <option value="yes">ได้</option>
+                <option value="no">ไม่ได้</option>
+            </select>
+        </label><br><br>
+
+        <button type="submit">ค้นหา</button>
+    </form>
+</body>
+</html>

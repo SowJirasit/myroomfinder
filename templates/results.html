@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ผลลัพธ์การค้นหา | Sonic Residence</title>
+</head>
+<body>
+    <h1>ผลลัพธ์การค้นหา</h1>
+
+    {% if rooms %}
+        {% for room in rooms %}
+            <div style="border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; border-radius: 10px;">
+                <h2>{{ room.ชื่อ }}</h2>
+                <p><strong>ชนิด:</strong> {{ room.ชนิด }}</p>
+                <p><strong>โลเคชั่น:</strong> {{ room.โลเคชั่น }}</p>
+                <p><strong>ราคา:</strong> {{ room.ราคา }} บาท</p>
+                <p><strong>ขนาด:</strong> {{ room.ขนาด }} ตรม.</p>
+                <p><strong>ห้องนอน:</strong> {{ room.ห้องนอน }}</p>
+                <p><strong>เลี้ยงสัตว์:</strong> {{ room.เลี้ยงสัตว์ }}</p>
+
+                {% if room['Iframe'] %}
+                 <div style="margin-top: 10px;">
+                     {{ room['Iframe'] | safe }}
+                 </div>
+                {% endif %}
+                
+                <p><a href="{{ room['ลิงก์ Facebook'] }}" target="_blank">ดูโพสต์บน Facebook</a></p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>ไม่พบข้อมูลห้องที่ตรงกับเงื่อนไข</p>
+    {% endif %}
+
+    <p><a href="/">🔙 กลับไปหน้าค้นหา</a></p>
+</body>
+</html>
